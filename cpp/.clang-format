@@ -50,7 +50,7 @@ Language: Cpp
 Standard: Auto
 
 # Pointer and reference alignment style. Possible values: Left, Right, Middle.
-#PointerAlignment: Left
+PointerAlignment: Left
 
 
 # AccessModifierOffset (int)
@@ -89,7 +89,7 @@ AlignEscapedNewlinesLeft: true
 # Specifically, this aligns operands of a single expression that needs to be split over multiple lines, e.g.:
 # int aaa = bbbbbbbbbbbbbbb +
 #           ccccccccccccccc;
-AlignOperands: false
+AlignOperands: true
 
 # AlignTrailingComments (bool)
 # If true, aligns trailing comments.
@@ -177,7 +177,7 @@ AlwaysBreakBeforeMultilineStrings: false
 #   BS_GNU (in configuration: GNU) Always break before braces and add an extra level of indentation to braces of control statements, not to those of class, function or other definitions.
 #   BS_WebKit (in configuration: WebKit) Like Attach, but break before functions.
 #   BS_Custom (in configuration: Custom) Configure each individual brace in BraceWrapping.
-BreakBeforeBraces: Linux
+BreakBeforeBraces: Stroustrup
 
 # BreakBeforeTernaryOperators (bool)
 # If true, ternary operators will be placed after line breaks.
@@ -291,7 +291,7 @@ MaxEmptyLinesToKeep: 2
 #   NI_None (in configuration: None) Don’t indent in namespaces.
 #   NI_Inner (in configuration: Inner) Indent only in inner namespaces (nested in other namespaces).
 #   NI_All (in configuration: All) Indent in all namespaces.
-#NamespaceIndentation: None
+NamespaceIndentation: Inner
 
 # ObjCBlockIndentWidth (unsigned)
 # The number of characters to use for indentation of ObjC blocks.
@@ -345,6 +345,10 @@ MaxEmptyLinesToKeep: 2
 # If true, clang-format will sort #includes.
 #SortIncludes: false (from v3.9)
 
+#
+SortUsingDeclarations: true
+
+
 # SpaceAfterCStyleCast (bool)
 # If true, a space may be inserted after C style casts.
 #SpaceAfterCStyleCast: false
@@ -389,4 +393,14 @@ SpacesInParentheses: false
 # SpacesInSquareBrackets (bool)
 # If true, spaces will be inserted after [ and before ].
 SpacesInSquareBrackets: false
+
+# This setting ensures a blank line before access modifiers in classes (public, private, protected).
+# It improves readability in classes by visually separating access levels.
+EmptyLineBeforeAccessModifier: Always
+
+# This controls the indentation of preprocessor directives, which can be helpful for readability, 
+# especially in large files with many #ifdef, #define, etc.
+IndentPPDirectives: AfterHash
+
+MaxEmptyLinesToKeep: 1
 
