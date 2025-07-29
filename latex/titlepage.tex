@@ -1,0 +1,36 @@
+% \NewDocumentEnvironment (which requires the xparse package) is used instead of \newenvironment to allow for the year parameter #2 to be used in the environment end code.
+% Parameters:
+% - title e.g. "Structured Programming"
+% - date e.g. "Summer Semester 2022-2023"
+% The argspec {mm} means the titlepage environment takes two (m)andatory arguments
+\usepackage{xparse}
+\NewDocumentEnvironment{mytitlepage}{mm}
+{% ENVIRONMENT PREAMBLE
+\pagestyle{empty}  % remove headers from title page
+\begin{center}
+\thispagestyle{empty}
+\null
+\vspace{15ex}
+% {\huge \underline{\hphantom{m}{#1}\hphantom{m}}}\\[1.5ex]
+{\huge {#1}}\\[2.5ex]
+
+% \setlength{\parindent}{2em}
+\begin{minipage}[t]{0.80\textwidth}%
+\setlength{\parindent}{1.5em}
+    % minipage to hold introductory text
+}% ENVIRONMENT CONTENT GOES HERE
+{% ENVIRONMENT "POST-AMBLE"
+\end{minipage}
+% \setlength{\parindent}{0pt}
+\vfill
+
+{\textit{ Contact me at \href{mailto:minhazul@iut-dhaka.edu}{\texttt{minhazul@iut-dhaka.edu}}}}\\[-1.0ex]
+\rule{11cm}{0.4pt}\\[0.5ex]
+S. M. Minhazul Haque\\
+{#2}\\  % use date argument here
+Last update: \today\\
+Department of CSE, Islamic University of Technology\\
+
+\end{center}
+\newpage
+}
